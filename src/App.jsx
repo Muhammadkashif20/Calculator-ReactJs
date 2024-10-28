@@ -1,7 +1,14 @@
 // src/CalculatorUI.jsx
-import React from "react";
+import React, { useState } from "react";
 
 const CalculatorUI = () => {
+  const [inputValue,setValue]=useState('0')
+  const handleAnswer=(e)=>{
+    // console.log(e.target.value);
+    console.log(inputValue);
+    setValue(inputValue)
+    }
+   
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-300 text-gray-800">
       <div className="bg-white rounded-lg shadow-lg p-6 w-80">
@@ -13,6 +20,7 @@ const CalculatorUI = () => {
             placeholder="0"
             className="bg-transparent text-3xl font-light w-full text-right text-gray-700 outline-none"
             readOnly
+            onChange={()=>setValue(e.target.value)}
           />
         </div>
 
@@ -23,9 +31,11 @@ const CalculatorUI = () => {
           {["C", "±", "%", "÷"].map((symbol) => (
             <button
               key={symbol}
+              onClick={handleAnswer}
               className="bg-gray-200 rounded-md text-lg py-2 hover:bg-gray-300 active:bg-gray-400 transition duration-200"
             >
               {symbol}
+              
             </button>
           ))}
 
@@ -34,6 +44,8 @@ const CalculatorUI = () => {
             (symbol) => (
               <button
                 key={symbol}
+              onClick={handleAnswer}
+                
                 className="bg-gray-100 rounded-md text-lg py-2 hover:bg-gray-200 active:bg-gray-300 transition duration-200"
               >
                 {symbol}
@@ -42,13 +54,21 @@ const CalculatorUI = () => {
           )}
 
           {/* Bottom Row */}
-          <button className="col-span-2 bg-gray-100 rounded-md text-lg py-2 hover:bg-gray-200 active:bg-gray-300 transition duration-200">
+          <button className="col-span-2 bg-gray-100 rounded-md text-lg py-2 hover:bg-gray-200 active:bg-gray-300 transition duration-200"
+              onClick={handleAnswer}
+          
+          >
             0
           </button>
-          <button className="bg-gray-100 rounded-md text-lg py-2 hover:bg-gray-200 active:bg-gray-300 transition duration-200">
+          <button className="bg-gray-100 rounded-md text-lg py-2 hover:bg-gray-200 active:bg-gray-300 transition duration-200"
+              onClick={handleAnswer}
+          
+          >
             .
           </button>
-          <button className="bg-blue-500 text-white rounded-md text-lg py-2 hover:bg-blue-600 active:bg-blue-700 transition duration-200">
+          <button className="bg-blue-500 text-white rounded-md text-lg py-2 hover:bg-blue-600 active:bg-blue-700 transition duration-200"
+          onClick={handleAnswer}
+          >
             =
           </button>
         </div>
