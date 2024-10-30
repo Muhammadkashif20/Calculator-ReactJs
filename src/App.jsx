@@ -1,21 +1,11 @@
-// src/CalculatorUI.jsx
+// Calculator.jsx
 import React, { useState } from "react";
+
 const spCharacters = ["C", "Del", "%", "/"];
-const num_Operators = [
-  "7",
-  "8",
-  "9",
-  "*",
-  "4",
-  "5",
-  "6",
-  "-",
-  "1",
-  "2",
-  "3",
-  "+",
+const num_Operators = ["7","8","9","*","4","5","6","-","1","2","3","+",
 ];
 const CalculatorUI = () => {
+  // Functionality Of The Calculator Project.
   const [inputValue, setValue] = useState("");
   const handleAnswer = () => {
     setValue(eval(inputValue));
@@ -35,7 +25,7 @@ const CalculatorUI = () => {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-300 text-gray-800">
       <div className="bg-white rounded-lg shadow-lg p-6 w-80">
-        {/* Display Section */}
+        {/* Display User Interface */}
         <div className="mb-4 p-4 bg-gray-50 rounded-md shadow-inner text-right">
           <input
             type="text"
@@ -45,9 +35,9 @@ const CalculatorUI = () => {
             value={inputValue}
           />
         </div>
-        {/* Buttons Grid */}
+        {/* Buttons Grid To Responsive*/}
         <div className="grid grid-cols-4 gap-2">
-          {/* Top Control Buttons */}
+          {/* Spectial Control Buttons Like Remove & Other*/}
           {spCharacters.map((symbol) => (
             <button
               key={symbol}
@@ -68,7 +58,6 @@ const CalculatorUI = () => {
               {symbol}
             </button>
           ))}
-          {/* Bottom Row */}
           <button
             className="col-span-2 bg-gray-100 rounded-md text-lg py-2 hover:bg-gray-200 active:bg-gray-300 transition duration-200"
             onClick={handleCalculation}
